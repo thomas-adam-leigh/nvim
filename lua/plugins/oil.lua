@@ -1,16 +1,16 @@
 return {
   "stevearc/oil.nvim",
-  dependencies = {"nvim-tree/nvim-web-devicons"},
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   cmd = "Oil",
   keys = { { "-", "<cmd>Oil --float<cr>", desc = "Oil buffer" } },
   enabled = true,
 
   -- {{{ Option
   opts = function(_, opts)
-
-    opts.columns = {"icon"}
+    opts.columns = { "icon" }
+    opts.skip_confirm_for_simple_edits = true
     opts.prompt_save_on_select_new_entry = true
-    opts.use_default_keymaps =  false
+    opts.use_default_keymaps = false
 
     opts.keymaps = {
       ["g?"] = "actions.show_help",
