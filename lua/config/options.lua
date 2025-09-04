@@ -76,10 +76,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     local args = vim.fn.argc()
     local is_stdin = vim.fn.line2byte(vim.fn.line("$") + 1) ~= -1
+    local first_arg = args > 0 and vim.fn.argv(0) or nil
     
-    if args == 0 and not is_stdin then
+    if (args == 0 and not is_stdin) or (args == 1 and first_arg == ".") then
       vim.schedule(function()
-        require("oil").open()
+        vim.cmd("Oil --float")
       end)
     end
   end,
