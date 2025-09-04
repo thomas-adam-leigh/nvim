@@ -72,6 +72,19 @@ vim.g.bullets_enabled_file_types = {
   "wiki",
 }
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    local args = vim.fn.argc()
+    local is_stdin = vim.fn.line2byte(vim.fn.line("$") + 1) ~= -1
+    
+    if args == 0 and not is_stdin then
+      vim.schedule(function()
+        require("oil").open()
+      end)
+    end
+  end,
+})
+
 local undodir = vim.fn.stdpath("data") .. "/undo"
 if not vim.fn.isdirectory(undodir) then
   vim.fn.mkdir(undodir, "p", 0700)
