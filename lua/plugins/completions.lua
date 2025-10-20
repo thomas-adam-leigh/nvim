@@ -5,17 +5,21 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
+    lazy = false,
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
     },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_lua").load({paths = "./lua/snippets"})
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     config = function()
       local cmp = require("cmp")
-      require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_lua").load({paths = "./lua/snippets"})
 
       cmp.setup({
         snippet = {

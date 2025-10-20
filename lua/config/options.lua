@@ -1,4 +1,3 @@
-
 local options = {
   autoread = true,
   autowrite = true,
@@ -59,7 +58,7 @@ end
 
 vim.opt.formatoptions:remove("o")
 
-vim.cmd[[set termguicolors]]
+vim.cmd [[set termguicolors]]
 vim.cmd([[filetype plugin indent on]])
 
 vim.g.have_nerd_font = true
@@ -77,10 +76,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
     local args = vim.fn.argc()
     local is_stdin = vim.fn.line2byte(vim.fn.line("$") + 1) ~= -1
     local first_arg = args > 0 and vim.fn.argv(0) or nil
-    
+
     if (args == 0 and not is_stdin) or (args == 1 and first_arg == ".") then
       vim.schedule(function()
-        vim.cmd("Oil --float")
+        vim.cmd("Oil")
       end)
     end
   end,
