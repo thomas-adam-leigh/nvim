@@ -9,7 +9,7 @@ return {
       indent = { enable = true },
       ensure_installed = {
         "bash", "c", "cpp", "css", "html", "javascript", "json", "lua",
-        "markdown", "prisma", "python", "tsx", "typescript", "vim", "yaml",
+        "markdown", "prisma", "python", "svelte", "tsx", "typescript", "vim", "yaml",
       },
     },
     config = function(_, opts)

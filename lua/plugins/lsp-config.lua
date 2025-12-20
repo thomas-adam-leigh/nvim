@@ -19,22 +19,15 @@ return {
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      local lspconfig = require("lspconfig")
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities
-      })
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
-      lspconfig.prismals.setup({
-        capabilities = capabilities
-      })
+      -- Configure LSP servers using vim.lsp.config (Neovim 0.11+)
+      local servers = { 'ts_ls', 'solargraph', 'html', 'lua_ls', 'prismals', 'svelte', 'mdx_analyzer' }
+
+      for _, server in ipairs(servers) do
+        vim.lsp.config[server] = {
+          capabilities = capabilities,
+        }
+        vim.lsp.enable(server)
+      end
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
