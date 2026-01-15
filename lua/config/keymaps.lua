@@ -34,6 +34,7 @@ vim.keymap.set("n", "<leader>w", "<CMD>w<CR>", { desc = "save file" })
 vim.keymap.set("n", "<leader>q", "<CMD>qa<CR>", { desc = "quit without saving" })
 vim.keymap.set("n", "<leader>z", "<CMD>wq<CR>", { desc = "quit without saving" })
 vim.keymap.set("n", "<leader>no", "<CMD>noh<CR>", { desc = "clear search highlight" })
+vim.keymap.set("i", "jk", "<ESC>", { desc = "Escape insert mode" })
 
 -- harpoon
 vim.keymap.set('n', '<leader>a', function() require("harpoon"):list():add() end, { desc = "Add file to harpoon list" })
