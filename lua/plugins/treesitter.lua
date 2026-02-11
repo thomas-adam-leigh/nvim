@@ -8,7 +8,7 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
       ensure_installed = {
-        "bash", "c", "cpp", "css", "html", "javascript", "json", "lua",
+        "bash", "c", "cpp", "css", "dart", "html", "javascript", "json", "lua",
         "markdown", "prisma", "python", "svelte", "tsx", "typescript", "vim", "yaml",
       },
     },
